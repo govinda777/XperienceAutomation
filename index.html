@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUTOMATION: Plataforma SaaS de Automação Industrial</title>
+  <meta name="description" content="Reduza custos de manutenção em 39% nas suas tubulações industriais com automação inteligente. Plataforma SaaS - ROI comprovado e conformidade garantida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather-sprite.svg">
+  <style>
+    :root {
+      --color-primary: #218B8D;
+      --color-bg: #F8F6F3;
+      --color-text: #1A1A1A;
+      --color-text-secondary: #5C5C5C;
+      --color-text-light: #8A8A8A;
+      --color-border: #E8E6E2;
+      --color-layer1: #0F766E;
+      --color-layer2: #6B21A8;
+      --color-layer3: #92400E;
+      --color-layer4: #3F6212;
+      --color-white: #fff;
+      --color-success: #059669;
+      --color-warning: #D97706;
+      --color-error: #DC2626;
+      --color-info: #0284C7;
+      --font-family: 'Inter', Arial, sans-serif;
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.10);
+      --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-bg);
+      font-family: var(--font-family);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER - PREMIUM */
+    header {
+      background: rgba(248, 246, 243, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: none;
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+      padding-right: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo span {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+    .nav-links li a:hover {
+      color: var(--color-text);
+    }
+    .nav-cta {
+      margin-left: 3rem;
+    }
+    .btn-demo {
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius);
+      background: var(--color-primary);
+      box-shadow: none;
+      color: var(--color-white);
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.01em;
+    }
+    .btn-demo:hover {
+      background: #1a7a7c;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    /* Hamburger menu mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--color-primary);
+      margin: 4px 0;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 1100px){
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero h2 {
+        font-size: 1.125rem;
+      }
+      .hero-number-value {
+        font-size: 2rem;
+      }
+      .layers-title, .sectors-title, .dora-title, .investors-title,
+      .comparison-header h2, .calculator-header h2 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 768px){
+      .nav {
+        padding: 1rem;
+      }
+      nav {
+        justify-content: flex-end;
+      }
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(248, 246, 243, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-lg);
+        padding: 1.5rem 2rem;
+        border-radius: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        border-top: 1px solid var(--color-border);
+      }
+      .nav-links li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--color-border);
+      }
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-cta {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* HERO SECTION - PREMIUM */
+    .hero {
+      margin-top: 70px;
+      width: 100%;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(33, 139, 141, 0.03) 0%, rgba(248, 246, 243, 1) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem;
+    }
+    .hero-content {
+      max-width: 900px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-numbers {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-number {
+      text-align: center;
+    }
+    .hero-number-value {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-number-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-weight: 500;
+      border: none;
+      border-radius: var(--radius);
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: none;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      background: #1a7a7c;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-outline {
+      background: transparent;
+      border: none;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 4px;
+    }
+    .btn-outline:hover {
+      color: var(--color-text);
+      text-decoration-color: var(--color-text);
+    }
+    .hero-social {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      flex-wrap: wrap;
+      font-weight: 400;
+    }
+
+    /* COMO FUNCIONA (4 CAMADAS) - PREMIUM */
+    .layers-section {
+      background: var(--color-white);
+      padding: 6rem 3rem;
+    }
+    .layers-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .layers-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .layers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1000px){
+      .layers-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+      }
+    }
+    .layer-card {
+      background: var(--color-bg);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      border-left: 3px solid;
+      animation: fadeIn 0.6s ease-out;
+      position: relative;
+    }
+    .layer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-left-color: var(--color-primary);
+    }
+    .layer1 { border-left-color: var(--color-layer1); }
+    .layer2 { border-left-color: var(--color-layer2); }
+    .layer3 { border-left-color: var(--color-layer3); }
+    .layer4 { border-left-color: var(--color-layer4); }
+    .layer-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(26, 26, 26, 0.08);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .layer-icon {
+      display: none;
+    }
+    .layer-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+    .layer-desc {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .layer-benefits ul {
+      margin: 0 0 2rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    .layer-benefits li {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .layer-benefits li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .layer-badges {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .layer-badge-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .layer-badge-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+    .layer-badge-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CALCULADORA ROI - PREMIUM */
+    .calculator-section {
+      background: var(--color-bg);
+      padding: 6rem 3rem;
+      overflow-x: auto;
+    }
+    .calculator-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .calculator-header h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .calculator-header p {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .calculator-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg);
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      padding: 0;
+      gap: 0;
+      align-items: stretch;
+      animation: fadeIn 0.8s ease-out;
+      border: 1px solid var(--color-border);
+    }
+    .calculator-separator {
+      background: var(--color-border);
+      width: 1px;
+    }
+    @media (max-width: 1000px){
+      .calculator-container{
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .calculator-separator {
+        display: none;
+      }
+    }
+    .calculator-inputs {
+      padding: 3rem;
+    }
+    .calculator-inputs label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .calculator-inputs input[type="number"],
+    .calculator-inputs input[type="range"] {
+      width: 100%;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      padding: 0.75rem 0;
+      border: none;
+      border-bottom: 1px solid var(--color-border);
+      border-radius: 0;
+      background: transparent;
+      color: var(--color-text);
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    .calculator-inputs input[type="number"]:focus,
+    .calculator-inputs input[type="range"]:focus {
+      outline: none;
+      border-bottom-color: var(--color-primary);
+    }
+    .calculator-inputs input[type="range"] {
+      margin-bottom: 0.5rem;
+      padding: 0;
+      border: none;
+    }
+    .calculator-inputs .range-value {
+      display: block;
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .calculator-inputs .radio-group {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .calculator-inputs .radio-group label {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 0;
+      cursor: pointer;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .calculator-outputs {
+      background: var(--color-white);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .output-main-roi {
+      text-align: left;
+    }
+    .roi-value {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      animation: fadeIn 0.8s ease-out;
+    }
+    .roi-label {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .output-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .output-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .output-metric-value {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .output-metric-label {
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .analysis-scenarios {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .scenario-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .scenario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .scenario-row:last-child {
+      border-bottom: none;
+    }
+    .scenario-label {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+    .scenario-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .scenario-value.pessimist { color: var(--color-warning); }
+    .scenario-value.optimist { color: var(--color-success); }
+    .calculator-actions {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .btn-personal-demo {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      letter-spacing: 0.01em;
+    }
+    .btn-personal-demo:hover {
+      background: #1a7a7c;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* CASOS DE USO POR SETOR - PREMIUM */
+    .sectors-section{
+      background: var(--color-white);
+      padding: 6rem 3rem;
+    }
+    .sectors-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .sectors-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1100px){
+      .sectors-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px){
+      .sectors-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+    .sector-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      animation: fadeIn 0.6s ease-out;
+      position: relative;
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+    }
+    .sector-card:hover {
+      transform: translateY(-4px);
+    }
+    .sector-card:hover .sector-economy {
+      color: var(--color-text);
+    }
+    .sector-icon {
+      margin-bottom: 1.5rem;
+      background: transparent;
+      border-radius: 0;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+    .sector-icon svg {
+      stroke: var(--color-primary);
+      width: 48px;
+      height: 48px;
+      stroke-width: 1.5;
+    }
+    .sector-name {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+    .sector-economy {
+      font-size: 2rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .sector-desc {
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* DORA METRICS - PREMIUM */
+    .dora-section {
+      background: var(--color-bg);
+      padding: 6rem 3rem;
+    }
+    .dora-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+    }
+    .dora-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 4rem;
+    }
+    .dora-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (max-width:768px){
+      .dora-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+    .dora-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+      border-top: 2px solid var(--color-primary);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      animation: fadeIn 0.6s ease-out;
+      transition: all 0.3s ease;
+    }
+    .dora-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .dora-metric-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .dora-metric-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .dora-metric-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(5, 150, 105, 0.1);
+      color: var(--color-success);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .dora-metric-benchmark {
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sparkline {
+      width: 100%;
+      height: 40px;
+      display: block;
+      margin-top: auto;
+    }
+
+    /* BLUE OCEAN VS RED OCEAN - PREMIUM */
+    .comparison-section {
+      background: var(--color-white);
+      padding: 6rem 3rem;
+    }
+    .comparison-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .comparison-header h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .comparison-header p {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .comparison-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: transparent;
+      animation: fadeIn 0.8s ease-out;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 1.5rem 2rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 1rem;
+      vertical-align: top;
+    }
+    .comparison-table th{
+      background: transparent;
+      color: var(--color-text-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-bottom: 1rem;
+    }
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .comparison-table td:first-child {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .comparison-table td.red-ocean {
+      background: transparent;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+    .comparison-table td.blue-ocean {
+      background: transparent;
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* SEÇÃO PARA INVESTIDORES - PREMIUM */
+    .investors-section{
+      background: var(--color-bg);
+      padding: 6rem 3rem;
+    }
+    .investors-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .investors-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .investors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem auto;
+    }
+    @media (max-width:1000px){
+      .investors-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width:600px){
+      .investors-grid{ grid-template-columns: 1fr; max-width: 400px; }
+    }
+    .investor-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.6s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .investor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .investor-card-value {
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .investor-card-label {
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .investors-ctas{
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-pitch, .btn-financial {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.01em;
+    }
+    .btn-pitch:hover, .btn-financial:hover {
+      background: #1a7a7c;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* CHAT FLOATING WIDGET - PREMIUM */
+    .chat-widget {
+      position: fixed;
+      right: 2rem;
+      bottom: 2rem;
+      z-index: 3001;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .chat-widget:hover {
+      background: #1a7a7c;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .chat-modal {
+      position: fixed;
+      right: 2rem;
+      bottom: 7rem;
+      z-index: 3002;
+      width: 380px;
+      max-width: calc(100vw - 4rem);
+      background: var(--color-white);
+      box-shadow: var(--shadow-xl);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .chat-modal.open {
+      display: flex;
+    }
+    .chat-header {
+      font-weight: 600;
+      color: var(--color-text);
+      font-size: 1rem;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .chat-messages {
+      flex: 1;
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .chat-replies {
+      padding: 0 1.5rem 1rem 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .reply-btn {
+      background: var(--color-bg);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .reply-btn:hover{
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+    }
+    .chat-input-container {
+      padding: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      gap: 0.75rem;
+    }
+    .chat-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    .chat-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .chat-send-btn {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .chat-send-btn:hover {
+      background: #1a7a7c;
+    }
+
+    /* FOOTER - PREMIUM */
+    footer{
+      background: var(--color-white);
+      color: var(--color-text-secondary);
+      padding: 4rem 3rem 2rem 3rem;
+      font-size: 0.875rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+    @media (max-width:1000px){
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width:600px){
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    .footer-title {
+      font-weight: 600;
+      color: var(--color-text);
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .footer-list li{
+      margin-bottom: 0.75rem;
+    }
+    .footer-list a{
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-list a:hover{
+      color: var(--color-text);
+    }
+    .newsletter-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .newsletter-input {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .newsletter-btn {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .newsletter-btn:hover{
+      background: #1a7a7c;
+    }
+    .footer-bottom{
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--color-text-light);
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="logo">AUTOMATION
+        <span>Industrial Automation Platform</span>
+      </div>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="scroll-link">Home</a></li>
+          <li><a href="#sobre" class="scroll-link">Sobre</a></li>
+          <li><a href="#clientes" class="scroll-link">Para Clientes</a></li>
+          <li><a href="#investidores" class="scroll-link">Para Investidores</a></li>
+          <li><a href="#blog" class="scroll-link">Blog</a></li>
+          <li><a href="#chat" class="scroll-link">Chat</a></li>
+          <li><a href="#contato" class="scroll-link">Contato</a></li>
+        </ul>
+        <div class="nav-cta">
+          <button class="btn-demo scroll-link" data-scroll="calculator">Demo Grátis</button>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-numbers">
+        <div class="hero-number">
+          <div class="hero-number-value" id="heroCostReduction">0%</div>
+          <div class="hero-number-label">Redução de Custos</div>
+        </div>
+        <div class="hero-number">
+          <div class="hero-number-value" id="heroAnnualEconomy">USD 0</div>
+          <div class="hero-number-label">Economia Média / Ano</div>
+        </div>
+      </div>
+      <h1>Automação Inteligente para Impactar Lucros: Dados, Conformidade e ROI Empresarial</h1>
+      <h2>Plataforma SaaS premium para reduzir custos, eliminar emergências, e garantir compliance digital no chão de fábrica.</h2>
+      <div class="hero-btns">
+        <button class="btn-primary scroll-link" data-scroll="calculator">Solicitar Demo</button>
+        <button class="btn-outline scroll-link" data-scroll="sobre">Aprender Mais</button>
+      </div>
+      <div class="hero-social">
+        <span>45 PMEs auditadas</span>
+        <span>| ROI médio: 88%</span>
+        <span>| Payback: 5,8 meses</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4 CAMADAS - COMO FUNCIONA -->
+  <section class="layers-section" id="sobre">
+    <div class="layers-title">As 4 Camadas da Otimização Industrial</div>
+    <div class="layers-subtitle">O DNA da transformação digital industrial: inovação preditiva, controle automático, compliance instantâneo e ROI claro de cada etapa.</div>
+    <div class="layers-grid">
+      <!-- Camadas premium via JS -->
+    </div>
+  </section>
+
+  <!-- CALCULADORA ROI INTERATIVA -->
+  <section class="calculator-section" id="calculator">
+    <div class="calculator-header">
+      <h2>Calculadora de ROI Interativa</h2>
+      <p>Simule o impacto financeiro com seus próprios dados. Veja retorno, economia e payback em tempo real.</p>
+    </div>
+    <div class="calculator-container">
+      <form class="calculator-inputs" id="roiForm" autocomplete="off" tabindex="0">
+        <label for="lines">Número de linhas de tubulação</label>
+        <input type="range" min="1" max="50" id="lines" name="lines" value="5" step="1">
+        <span class="range-value" id="linesValue">5</span>
+        <label for="costAnnual">Custo operacional anual (USD)</label>
+        <input type="number" min="0" id="costAnnual" name="costAnnual" value="54100" placeholder="54100">
+        <label for="emergencies">Frequência de emergências/ano</label>
+        <input type="number" min="0" max="50" id="emergencies" name="emergencies" value="1" placeholder="1">
+        <label for="discountRate">Taxa de desconto (%)</label>
+        <input type="range" min="5" max="15" id="discountRate" name="discountRate" value="10" step="1">
+        <span class="range-value" id="discountValue">10%</span>
+        <label>Período análise</label>
+        <div class="radio-group">
+          <label><input type="radio" name="period" value="1">1 ano</label>
+          <label><input type="radio" name="period" value="3">3 anos</label>
+          <label><input type="radio" name="period" value="5" checked>5 anos</label>
+        </div>
+        <div class="calculator-actions">
+          <button type="button" class="btn-personal-demo" id="demoPersonalBtn">Simular Meu Caso</button>
+        </div>
+      </form>
+      <div class="calculator-separator"></div>
+      <div class="calculator-outputs" id="calculatorOutputs">
+        <!-- outputs JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO POR SETOR -->
+  <section class="sectors-section" id="cases">
+    <div class="sectors-title">Casos de Uso por Setor</div>
+    <div class="sectors-subtitle">Economia anual validada por PMEs em diferentes indústrias. Dados reais, retornos mensuráveis.</div>
+    <div class="sectors-grid">
+      <!-- Cards via JS -->
+    </div>
+  </section>
+
+  <!-- DORA METRICS -->
+  <section class="dora-section" id="dashboard">
+    <div class="dora-title">Engineering Excellence</div>
+    <div class="dora-subtitle">Métricas DORA Elite: velocidade, confiabilidade e inovação contínua</div>
+    <div class="dora-grid">
+      <!-- Cards via JS -->
+    </div>
+  </section>
+
+  <!-- BLUE OCEAN VS RED OCEAN -->
+  <section class="comparison-section" id="comparison">
+    <div class="comparison-header">
+      <h2>Blue Ocean vs Red Ocean</h2>
+      <p>Como nos diferenciamos do mercado tradicional de manutenção industrial</p>
+    </div>
+    <div class="comparison-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Critério</th>
+          <th>Red Ocean</th>
+          <th>Blue Ocean <span style="color:var(--color-primary);">AUTOMATION</span></th>
+        </tr>
+      </thead>
+      <tbody id="comparisonTableBody">
+        <!-- Dados via JS -->
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- SEÇÃO PARA INVESTIDORES -->
+  <section class="investors-section" id="investidores">
+    <div class="investors-title">Oportunidade de Investimento</div>
+    <div class="investors-subtitle">Tracção comprovada, mercado bilionário, crescimento exponencial</div>
+    <div class="investors-grid" id="investorsGrid">
+      <!-- Cards via JS -->
+    </div>
+    <div class="investors-ctas">
+      <a href="#" target="_blank" class="btn-pitch">Baixar Pitch Deck</a>
+      <a href="#" target="_blank" class="btn-financial">Modelo Financeiro</a>
+    </div>
+  </section>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-widget" id="chatWidget" tabindex="0" aria-label="Abrir chat de suporte" role="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="18" y1="21" x2="12" y2="17"/><line x1="6" y1="21" x2="12" y2="17"/><line x1="12" y1="17" x2="12" y2="13"/></svg>
+  </div>
+  <div class="chat-modal" id="chatModal" aria-modal="true">
+    <div class="chat-header">Oi! Tudo bem? Como posso ajudar? Estou aqui 24/7 para dúvidas sobre preço, features, demo ou integração.</div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Conversa via JS -->
+    </div>
+    <div class="chat-replies" id="chatReplies">
+      <!-- Quick reply via JS -->
+    </div>
+    <div class="chat-input-container">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua mensagem..." aria-label="Mensagem">
+      <button class="chat-send-btn" id="chatSendBtn">Enviar</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contato">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Produto</div>
+        <ul class="footer-list">
+          <li><a href="#sobre" class="scroll-link">Como Funciona</a></li>
+          <li><a href="#calculator" class="scroll-link">Calculadora ROI</a></li>
+          <li><a href="#cases" class="scroll-link">Casos de Uso</a></li>
+          <li><a href="#dashboard" class="scroll-link">DORA Metrics</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Empresa</div>
+        <ul class="footer-list">
+          <li><a href="#investidores" class="scroll-link">Investidores</a></li>
+          <li><a href="#blog" class="scroll-link">Blog</a></li>
+          <li><a href="#contato" class="scroll-link">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Legal</div>
+        <ul class="footer-list">
+          <li><a href="#" target="_blank">Política de Privacidade</a></li>
+          <li><a href="#" target="_blank">Termos de Uso</a></li>
+          <li><a href="#" target="_blank">Compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Social</div>
+        <ul class="footer-list">
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Twitter/X</a></li>
+        </ul>
+        <div class="newsletter-box">
+          <input type="email" class="newsletter-input" id="newsletterInput" placeholder="Receba novidades" aria-label="Newsletter">
+          <button class="newsletter-btn" id="newsletterBtn">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 AUTOMATION | Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- SCRIPTS / INTERATIVIDADE -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script>
+    feather.replace();
+
+    // -------------------------------------------------
+    // Mobile Navigation: Hamburger Menu
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(window.innerWidth < 661){
+        if(!navLinks.contains(e.target) && !hamburger.contains(e.target)){
+          navLinks.classList.remove('open');
+        }
+      }
+    });
+
+    // ---------------------
+    // Smooth Scroll
+    document.querySelectorAll('.scroll-link').forEach(btn => {
+      btn.addEventListener('click',function(e){
+        const tgt = btn.dataset.scroll || btn.getAttribute('href').replace('#','');
+        const el = document.getElementById(tgt);
+        if(el){
+          e.preventDefault();
+          window.scrollTo({
+            top: el.offsetTop - 65,
+            behavior: "smooth"
+          });
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+
+    // ---------------------------------------------
+    // Hero number count animation
+    function animateNumber(element, target, suffix = '', duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target + suffix;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(start) + suffix;
+        }
+      }, 16);
+    }
+    
+    setTimeout(() => {
+      animateNumber(document.getElementById('heroCostReduction'), 39, '%', 1500);
+      animateNumber(document.getElementById('heroAnnualEconomy'), 60980, '', 1500);
+      setTimeout(() => {
+        document.getElementById('heroAnnualEconomy').textContent = 'USD 60.980';
+      }, 1550);
+    }, 500);
+
+    // 4 Camadas: Premium render
+    const layers = [
+      {
+        number: "1",
+        name: "Monitoramento IoT",
+        description: "Sensores conectados detectam anomalias 15 dias antes da falha",
+        benefits: [
+          "Alertas automáticos em tempo real (SMS, email, push)",
+          "Dashboard de telemetria e diagnóstico instantâneo",
+          "Integração com sistemas legados (SCADA, MES)"
+        ],
+        roi: "449%",
+        payback: "2,2"
+      },{
+        number: "2",
+        name: "IA Preditiva",
+        description: "Machine Learning identifica padrões e recomenda ações",
+        benefits: [
+          "Análise de causa raiz automatizada (80% acurácia)",
+          "Recomendações de método e timing ideal de limpeza",
+          "Aprendizado contínuo com feedback operacional"
+        ],
+        roi: "130%",
+        payback: "3,8"
+      },{
+        number: "3",
+        name: "Controle Automático",
+        description: "Automação total de válvulas, bombas e PLCs",
+        benefits: [
+          "Limpeza 100% automatizada (zero intervenção humana)",
+          "Redução de consumo: água (-50%), energia (-35%)",
+          "Economia de mão de obra operacional (-30%)"
+        ],
+        roi: "131%",
+        payback: "5,2"
+      },{
+        number: "4",
+        name: "Conformidade Digital",
+        description: "Documentação regulatória automatizada (NR-13, ISO 9001)",
+        benefits: [
+          "Relatórios de compliance gerados automaticamente",
+          "Zero não-conformidades em auditorias externas",
+          "Redução de trabalho administrativo em 70%"
+        ],
+        roi: "155%",
+        payback: "5,8"
+      }
+    ];
+    const layersGrid = document.querySelector('.layers-grid');
+    layers.forEach((layer, i) => {
+      const card = document.createElement('div');
+      card.className = `layer-card layer${i+1}`;
+      card.innerHTML = `
+        <div class="layer-number">${layer.number}</div>
+        <div class="layer-title">${layer.name}</div>
+        <div class="layer-desc">${layer.description}</div>
+        <div class="layer-benefits"><ul>${layer.benefits.map(b=>`<li>${b}</li>`).join('')}</ul></div>
+        <div class="layer-badges">
+          <div class="layer-badge-item">
+            <div class="layer-badge-value">${layer.roi}</div>
+            <div class="layer-badge-label">ROI Ano 1</div>
+          </div>
+          <div class="layer-badge-item">
+            <div class="layer-badge-value">${layer.payback}</div>
+            <div class="layer-badge-label">Payback (meses)</div>
+          </div>
+        </div>
+      `;
+      layersGrid.appendChild(card);
+    });
+
+    // ---------------------------------------------
+    // Casos de Uso por Setor - Premium
+    const sectors = [
+      { name: "Alimentos &amp; Bebidas", economy_annual: 150000, description: "Limpeza contínua com conformidade total" },
+      { name: "Farmacêutica", economy_annual: 200000, description: "Compliance regulatório crítico (zero falhas)" },
+      { name: "Refinarias", economy_annual: 320000, description: "Máximo ROI (paradas = USD 50K+/dia)" },
+      { name: "Tratamento Água", economy_annual: 80000, description: "Eficiência + sustentabilidade" }
+    ];
+    const sectorIcons = ['coffee','package','droplet','filter'];
+    const sectorsGrid = document.querySelector('.sectors-grid');
+    sectors.forEach((sector, i) => {
+      const card = document.createElement('div');
+      card.className = 'sector-card';
+      card.innerHTML = `
+        <div class="sector-icon"><i data-feather="${sectorIcons[i]}"></i></div>
+        <div class="sector-name">${sector.name}</div>
+        <div class="sector-economy">USD ${sector.economy_annual.toLocaleString('en-US')}</div>
+        <div class="sector-desc">${sector.description}</div>
+      `;
+      sectorsGrid.appendChild(card);
+    });
+    feather.replace();
+
+    // ------------------------------------------
+    // DORA Metrics - Premium
+    const doraMetrics = [
+      { name: "Deploy Frequency", value: "14/semana", benchmark: "vs 1-7/semana" },
+      { name: "Lead Time for Changes", value: "12 horas", benchmark: "vs 24-72 horas" },
+      { name: "MTTR", value: "1.2h", benchmark: "vs 4-24h" },
+      { name: "Change Failure Rate", value: "2.5%", benchmark: "vs 15-30%" }
+    ];
+    const doraGrid = document.querySelector('.dora-grid');
+    doraMetrics.forEach(metric => {
+      const card = document.createElement('div');
+      card.className = 'dora-card';
+      card.innerHTML = `
+        <div class="dora-metric-name">${metric.name}</div>
+        <div class="dora-metric-value">${metric.value}</div>
+        <div class="dora-metric-status">✓ Elite</div>
+        <div class="dora-metric-benchmark">${metric.benchmark}</div>
+        <canvas class="sparkline"></canvas>
+      `;
+      doraGrid.appendChild(card);
+    });
+
+    // Sparklines premium
+    document.querySelectorAll('.sparkline').forEach((canvas, idx) => {
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.offsetWidth * 2;
+      canvas.height = 80;
+      ctx.strokeStyle = '#218B8D';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      const points = [60, 55, 50, 45, 40, 35, 30, 25, 22, 20];
+      points.forEach((y, i) => {
+        const x = (i / (points.length - 1)) * canvas.width;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    });
+
+    // -------------------------------------------
+    // Comparativo Blue Ocean vs Red Ocean
+    const comparison = [
+      { criterion: "Modelo", red_ocean: "Reativo (problema &rarr; ação)", blue_ocean: "Preditivo (degradação &rarr; previsão &rarr; ação)" },
+      { criterion: "Detecção", red_ocean: "Manual + sensores básicos", blue_ocean: "IA + sensores avançados" },
+      { criterion: "Tempo Ação", red_ocean: "24-72 horas", blue_ocean: "Planejado (semanas antes)" },
+      { criterion: "ROI Ano 1", red_ocean: "30-50%", blue_ocean: "88-155%" },
+      { criterion: "Conformidade", red_ocean: "Manual (risco)", blue_ocean: "Automática (zero risco)" },
+      { criterion: "Implementação", red_ocean: "6-12 meses", blue_ocean: "5,8 meses" }
+    ];
+    const compBody = document.getElementById('comparisonTableBody');
+    comparison.forEach(comp => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+         <td>${comp.criterion}</td>
+         <td class="red-ocean">${comp.red_ocean}</td>
+         <td class="blue-ocean">${comp.blue_ocean}</td>
+      `;
+      compBody.appendChild(row);
+    });
+
+    // ---------------------------------------------
+    // SEÇÃO INVESTIDORES - Premium
+    const investorData = [
+      { label: "TAM LatAm", value: "USD 3B" },
+      { label: "Crescimento 3 anos", value: "100x" },
+      { label: "ROI Investidor", value: "33x" },
+      { label: "Clientes Atuais", value: "20" },
+    ];
+    const investorsGrid = document.getElementById('investorsGrid');
+    investorData.forEach(card => {
+      const el = document.createElement('div');
+      el.className = 'investor-card';
+      el.innerHTML = `<div class="investor-card-label">${card.label}</div><div class="investor-card-value">${card.value}</div>`;
+      investorsGrid.appendChild(el);
+    });
+
+    // ------------------------------------------
+    // CALCULADORA ROI INTERATIVA
+    const calculatorDefaults = {
+      lines: 5,
+      cost_annual: 54100,
+      emergencies: 1,
+      discount: 10,
+      period: 5
+    };
+    function calcROI(params){
+      // Fórmula simplificada: ROI=88%, Economia=60980, Payback=5.8 meses p/ dados padrões
+      // ROI proporcional ao número de linhas, custos, emergências, desconto, período
+      let baseROI = 88;
+      let baseEconomy = 60980;
+      let basePayback = 5.8;
+      let baseVPL = 217500;
+      let pessimistROI = 31;
+      let optimistROI = 144;
+      let factor = (params.lines/5)*0.5 + (params.cost_annual/54100)*0.5;
+      let roi = Math.round(baseROI * factor * (params.period/5));
+      let economy = Math.round(baseEconomy * Math.max(0.7, factor) * (1+params.emergencies*0.04));
+      let payback = (basePayback / factor * (5/params.period)).toFixed(1);
+      let vpl = Math.round(baseVPL * factor * (params.discount/10));
+      let pessimist = Math.round(pessimistROI * factor);
+      let optimist = Math.round(optimistROI * factor);
+      return {
+        roi, economy, payback, vpl, pessimist, roiBase: roi, optimist
+      };
+    }
+    function updateCalculator(){
+      const inpLines = parseInt(document.getElementById('lines').value);
+      document.getElementById('linesValue').textContent = inpLines;
+      const inpCost = parseFloat(document.getElementById('costAnnual').value)||0;
+      const inpEmerg = parseInt(document.getElementById('emergencies').value)||0;
+      const inpDiscount = parseInt(document.getElementById('discountRate').value);
+      document.getElementById('discountValue').textContent = inpDiscount +'%';
+      let periodNodes = document.querySelectorAll("input[name='period']");
+      let period = 5;
+      periodNodes.forEach((rb) => {if(rb.checked) period = parseInt(rb.value);});
+      const res = calcROI({lines:inpLines, cost_annual:inpCost, emergencies:inpEmerg, discount:inpDiscount, period});
+      // Premium outputs
+      document.getElementById('calculatorOutputs').innerHTML = `
+        <div class="output-main-roi">
+          <div class="roi-value">${res.roi}%</div>
+          <div class="roi-label">ROI Ano 1</div>
+        </div>
+        <div class="output-metrics">
+          <div class="output-metric">
+            <div class="output-metric-value">${res.payback}</div>
+            <div class="output-metric-label">Payback (meses)</div>
+          </div>
+          <div class="output-metric">
+            <div class="output-metric-value">USD ${(res.economy/1000).toFixed(1)}K</div>
+            <div class="output-metric-label">Economia / Ano</div>
+          </div>
+          <div class="output-metric">
+            <div class="output-metric-value">USD ${(res.vpl/1000).toFixed(0)}K</div>
+            <div class="output-metric-label">VPL (5 anos)</div>
+          </div>
+        </div>
+        <div class="analysis-scenarios">
+          <div class="scenario-title">Cenários de Análise</div>
+          <div class="scenario-row">
+            <div class="scenario-label">Pessimista</div>
+            <div class="scenario-value pessimist">${res.pessimist}% ROI</div>
+          </div>
+          <div class="scenario-row">
+            <div class="scenario-label">Base</div>
+            <div class="scenario-value">${res.roi}% ROI</div>
+          </div>
+          <div class="scenario-row">
+            <div class="scenario-label">Otimista</div>
+            <div class="scenario-value optimist">${res.optimist}% ROI</div>
+          </div>
+        </div>
+      `;
+      // Chart removed for cleaner premium look
+    }
+    document.getElementById('lines').addEventListener('input',updateCalculator);
+    document.getElementById('costAnnual').addEventListener('input',updateCalculator);
+    document.getElementById('emergencies').addEventListener('input',updateCalculator);
+    document.getElementById('discountRate').addEventListener('input',updateCalculator);
+    document.querySelectorAll("input[name='period']").forEach(rb=>rb.addEventListener('change',updateCalculator));
+    updateCalculator(); // inicializa
+
+    // ---------------------
+    // DEMO PERSONALIZADA MOCK
+    document.getElementById('demoPersonalBtn').addEventListener('click',function(){
+      alert('Equipe AUTOMATION entrará em contato para agendar sua demonstração personalizada!');
+    });
+
+    // --------------------------------------------
+    // CHAT WIDGET INTERATIVO
+    const chatWidget = document.getElementById('chatWidget');
+    const chatModal = document.getElementById('chatModal');
+    chatWidget.addEventListener('click',()=>{
+      chatModal.classList.toggle('open');
+      document.getElementById('chatInput').focus();
+    });
+    let chatReplies = [
+      "Tenho dúvida sobre preço",
+      "Quero agendar uma demo",
+      "Quero saber sobre features",
+      "Já sou cliente, preciso suporte",
+      "Outras dúvidas"
+    ];
+    function addChatMessage(msg, from='user'){
+      let chatMessages = document.getElementById('chatMessages');
+      let div = document.createElement('div');
+      div.style.marginBottom = '12px';
+      div.innerHTML = `<span style='font-weight:${from==='ai'?'600':'400'};color:${from==='ai'?'#1A1A1A':'#5C5C5C'};'>${msg}</span>`;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    function addAIResponse(msg){
+      setTimeout(()=>addChatMessage(msg,'ai'),750);
+    }
+    function showReplyBtns(){
+      let repliesBox = document.getElementById('chatReplies');
+      repliesBox.innerHTML = "";
+      chatReplies.forEach(txt => {
+        let b = document.createElement('button');
+        b.className = 'reply-btn';
+        b.textContent = txt;
+        b.addEventListener('click',function(){
+          addChatMessage(txt);
+          autoAI(txt);
+          repliesBox.innerHTML = '';
+        });
+        repliesBox.appendChild(b);
+      });
+    }
+    function autoAI(userMsg){
+      let aiMsg = "";
+      if(userMsg.toLowerCase().includes('preço'))
+        aiMsg = "Planos a partir de USD 4.500. Vamos analisar seu contexto para propor a melhor solução.";
+      else if(userMsg.toLowerCase().includes('demo'))
+        aiMsg = "Basta clicar em 'Solicitar Demo'. Nossos especialistas agendam a demonstração personalizada.";
+      else if(userMsg.toLowerCase().includes('features'))
+        aiMsg = "Incluímos: IoT, IA Preditiva, Controle automático, Compliance. Quer ver comparativo detalhado?";
+      else if(userMsg.toLowerCase().includes('suporte'))
+        aiMsg = "Nosso suporte técnico está disponível via chat, e-mail ou telefone. Como podemos ajudar?";
+      else aiMsg = "Enviaremos suas dúvidas ao time. Resposta em até 30 minutos (horário comercial).";
+      addAIResponse(aiMsg);
+      showReplyBtns();
+    }
+    showReplyBtns();
+    addAIResponse('AUTOMATION Support: Como posso ajudar? Estou aqui para dúvidas sobre preço, features, demo ou integração.');
+    // Input handler
+    document.getElementById('chatSendBtn').addEventListener('click',function(){
+      const v = document.getElementById('chatInput').value.trim();
+      if(v){ addChatMessage(v); autoAI(v); document.getElementById('chatInput').value = ""; }
+    });
+    document.getElementById('chatInput').addEventListener('keydown',function(ev){
+      if(ev.key==='Enter'){document.getElementById('chatSendBtn').click();}
+    });
+
+    // ------------------------------
+    // Footer newsletter
+    document.getElementById('newsletterBtn').addEventListener('click',function(){
+      const v = document.getElementById('newsletterInput').value.trim();
+      if(/^.+@.+\..+$/.test(v)){
+        alert('Obrigado por se inscrever!');
+        document.getElementById('newsletterInput').value = '';
+      } else {
+        alert('Digite um email válido.');
+      }
+    });
+  </script>
+</body>
+</html>
